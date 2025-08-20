@@ -257,7 +257,7 @@ const SubmitComplaint = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:5000/api/submit_complaint', formDataToSend, {
+              const response = await axios.post('http://localhost:5000/api/complaint/submit_complaint', formDataToSend, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

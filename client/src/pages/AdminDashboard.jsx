@@ -142,7 +142,7 @@ const AdminDashboard = () => {
 
   const fetchComplaints = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/complaints');
+      const response = await axios.get('http://localhost:5000/api/complaint/complaints');
       setComplaints(response.data);
     } catch (err) {
       console.error('Error fetching complaints:', err);
@@ -166,7 +166,7 @@ const AdminDashboard = () => {
 
   const handleStatusUpdate = async (complaintId, newStatus) => {
     try {
-      await axios.put(`http://localhost:5000/api/complaints/${complaintId}/status`, { status: newStatus });
+      await axios.put(`http://localhost:5000/api/complaint/complaints/${complaintId}/status`, { status: newStatus });
       fetchComplaints();
     } catch (err) {
       console.error('Error updating status:', err);

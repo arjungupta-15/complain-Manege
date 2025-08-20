@@ -154,7 +154,7 @@ Thank you for submitting your complaint.
 <p>Thank you for submitting your complaint.</p>`;
 
         await transporter.sendMail({
-          from: "ag.arjungupta15@gmail.com",
+          from: process.env.GMAIL_USER || "ag.arjungupta15@gmail.com",
           to: email,
           subject,
           text,

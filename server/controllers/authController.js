@@ -69,15 +69,11 @@ exports.loginStudent = async (req, res) => {
 
     const otp = generateOTP(email);
 
-
     // ✅ Send OTP mail
     await sendOTPEmail(email, otp);
 
-    res.json({ message: 'OTP sent to email' });
-
     console.log(`OTP for student ${email}: ${otp} (simulated email)`); // Simulate email sending
-    console.log(`OTP for student ${email}: ${otp} (simulated email)`);
-    res.json({ message: 'OTP sent' });
+    res.json({ message: 'OTP sent to email' });
 
   } catch (err) {
     console.error(err);
@@ -97,31 +93,6 @@ exports.verifyStudentOTP = async (req, res) => {
     res.json({ token });
   } catch (err) {
     res.status(500).json({ error: 'OTP verification failed' });
-  }
-};
-exports.signupAdmin = async (req, res) => {
-  const { email, password } = req.body;
-  try {
-    const exists = await Admin.findOne({ email });
-    if (exists) return res.status(400).json({ error: 'Email already in use' });
-
-    const admin = await Admin.create({ email, password });
-    res.status(201).json({ message: 'Admin created successfully' });
-  } catch (err) {
-    res.status(500).json({ error: 'Failed to signup admin' });
-  }
-};
-
-exports.signupAdmin = async (req, res) => {
-  const { email, password } = req.body;
-  try {
-    const exists = await Admin.findOne({ email });
-    if (exists) return res.status(400).json({ error: 'Email already in use' });
-
-    const admin = await Admin.create({ email, password });
-    res.status(201).json({ message: 'Admin created successfully' });
-  } catch (err) {
-    res.status(500).json({ error: 'Failed to signup admin' });
   }
 };
 

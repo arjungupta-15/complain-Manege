@@ -136,7 +136,7 @@ Sub-Category: ${subCategory === 'other' ? subOther : subCategory}
 Priority: ${priority.toUpperCase()}
 
 You can track your complaint status using this tracking ID at:
-https://your-netlify-url.netlify.app/track-complaint
+https://complaintmanagement1.netlify.app/track-complaint
 
 Thank you for submitting your complaint.
 `;
@@ -150,7 +150,7 @@ Thank you for submitting your complaint.
   <p><strong>Priority:</strong> <span style="color: ${priority === 'urgent' ? '#dc3545' : priority === 'high' ? '#fd7e14' : priority === 'medium' ? '#ffc107' : '#28a745'}; font-weight: bold;">${priority.toUpperCase()}</span></p>
 </div>
 <p>You can track your complaint status using this tracking ID at:</p>
-<p><a href="https://your-netlify-url.netlify.app/track-complaint" style="background-color: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block;">Track Complaint Status</a></p>
+<p><a href="https://complaintmanagement1.netlify.app/track-complaint" style="background-color: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block;">Track Complaint Status</a></p>
 <p>Thank you for submitting your complaint.</p>`;
 
         await transporter.sendMail({
@@ -265,10 +265,10 @@ Sub-Category: ${updatedComplaint.subCategory}
 Priority: ${updatedComplaint.priority?.toUpperCase()}
 
 We would love to hear your feedback! Please fill out our feedback form:
-https://your-netlify-url.netlify.app/feedback
+https://complaintmanagement1.netlify.app/feedback
 
 You can also track your complaint status anytime at:
-https://your-netlify-url.netlify.app/track-complaint
+https://complaintmanagement1.netlify.app/track-complaint
 
 Thank you for your patience.
 `;
@@ -283,9 +283,9 @@ Thank you for your patience.
   <li><strong>Resolved At:</strong> ${new Date(updatedComplaint.resolvedAt || Date.now()).toLocaleString()}</li>
 </div>
 <p>We would love to hear your feedback! Please fill out our feedback form:</p>
-<p><a href="https://your-netlify-url.netlify.app/feedback" style="background-color: #28a745; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block;">Submit Feedback</a></p>
+<p><a href="https://complaintmanagement1.netlify.app/feedback" style="background-color: #28a745; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block;">Submit Feedback</a></p>
 <p>You can also track your complaint status anytime at:</p>
-<p><a href="https://your-netlify-url.netlify.app/track-complaint" style="background-color: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block;">Track Complaint Status</a></p>
+<p><a href="https://complaintmanagement1.netlify.app/track-complaint" style="background-color: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block;">Track Complaint Status</a></p>
 <p>Thank you for your patience.</p>`;
 
         await transporter.sendMail({

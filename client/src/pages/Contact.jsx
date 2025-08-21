@@ -74,7 +74,7 @@ const Contact = () => {
     setError('');
 
     try {
-      const response = await axios.post('http://localhost:5000/api/submit_contact', {
+      const response = await axios.post('https://complain-manege.onrender.com/api/submit_contact', {
         name: formData.name,
         email: formData.email,
         subject: formData.subject,

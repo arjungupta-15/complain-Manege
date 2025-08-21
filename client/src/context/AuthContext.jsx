@@ -70,7 +70,7 @@ export const AuthProvider = ({ children }) => {
   // Verify OTP - now calls backend for verification
   const verifyOTP = async (email, otp) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/student/verify-otp', { email, otp });
+      const response = await axios.post('https://complain-manege.onrender.com/api/auth/student/verify-otp', { email, otp });
       const { token } = response.data;
 
       // Fetch user details or use info from token if sufficient
@@ -101,7 +101,7 @@ export const AuthProvider = ({ children }) => {
   // Admin login function (already updated)
   const loginAdmin = async ({ email, password }) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/admin/login', {
+      const response = await axios.post('https://complain-manege.onrender.com/api/auth/admin/login', {
         email,
         password,
       });
@@ -133,7 +133,7 @@ export const AuthProvider = ({ children }) => {
   // Student signup function
   const signupStudent = async ({ name, email, password }) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/student/signup', {
+      const response = await axios.post('https://complain-manege.onrender.com/api/auth/student/signup', {
         name,
         email,
         password,
@@ -152,7 +152,7 @@ export const AuthProvider = ({ children }) => {
   // Admin signup function (new)
   const signupAdmin = async ({ email, password }) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/admin/signup', {
+      const response = await axios.post('https://complain-manege.onrender.com/api/auth/admin/signup', {
         email,
         password,
       });
@@ -167,7 +167,7 @@ export const AuthProvider = ({ children }) => {
   // Student login function (triggers OTP generation on backend)
   const loginStudent = async ({ email, password }) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/student/login', { email, password });
+      const response = await axios.post('https://complain-manege.onrender.com/api/auth/student/login', { email, password });
       // The response here indicates OTP sent, not full login
       return response.data.message; // Should be 'OTP sent'
     } catch (error) {

@@ -41,7 +41,7 @@ const StudentDashboard = () => {
     const fetchMyComplaints = async () => {
       if (!user?.email) return;
       try {
-        const res = await axios.get(`http://localhost:5000/api/complaint/complaints-by-email`, { params: { email: user.email } });
+        const res = await axios.get(`https://complain-manege.onrender.com/api/complaint/complaints-by-email`, { params: { email: user.email } });
         setComplaints(res.data.map((c, idx) => ({
           id: c._id,
           tracking_id: c.trackingId,

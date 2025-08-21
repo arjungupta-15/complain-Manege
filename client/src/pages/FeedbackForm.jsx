@@ -37,7 +37,7 @@ const FeedbackForm = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/submit_feedback",
+        "https://complain-manege.onrender.com/api/submit_feedback",
         {
           complaintId: formData.complaintId,
           feedback: formData.feedback,

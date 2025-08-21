@@ -38,7 +38,7 @@ const SubmitComplaint = () => {
     const fetchOptions = async () => {
       try {
         console.log('📡 Fetching initial options...');
-        const response = await axios.get('http://localhost:5000/api/dynamic-options');
+        const response = await axios.get('https://complain-manege.onrender.com/api/dynamic-options');
         console.log('✅ Initial options response:', response.data);
         
         const options = response.data;
@@ -104,7 +104,7 @@ const SubmitComplaint = () => {
           console.log('📡 Fetching subcategories for:', formData.category);
           // Convert to lowercase to match database
           const categoryLower = formData.category.toLowerCase();
-          const url = `http://localhost:5000/api/dynamic-options?type=subCategory&parentCategory=${categoryLower}`;
+                     const url = `https://complain-manege.onrender.com/api/dynamic-options?type=subCategory&parentCategory=${categoryLower}`;
           console.log('🌐 API URL:', url);
           
           const response = await axios.get(url);
@@ -257,7 +257,7 @@ const SubmitComplaint = () => {
     }
 
     try {
-              const response = await axios.post('http://localhost:5000/api/complaint/submit_complaint', formDataToSend, {
+                             const response = await axios.post('https://complain-manege.onrender.com/api/complaint/submit_complaint', formDataToSend, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

@@ -142,7 +142,7 @@ const AdminDashboard = () => {
 
   const fetchComplaints = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/complaint/complaints');
+      const response = await axios.get('https://complain-manege.onrender.com/api/complaint/complaints');
       setComplaints(response.data);
     } catch (err) {
       console.error('Error fetching complaints:', err);
@@ -154,7 +154,7 @@ const AdminDashboard = () => {
 
   const fetchDynamicOptions = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/dynamic-options');
+      const response = await axios.get('https://complain-manege.onrender.com/api/dynamic-options');
       const options = response.data;
       setCategories(options.filter(opt => opt.type === 'category'));
       setDepartments(options.filter(opt => opt.type === 'department'));
@@ -166,7 +166,7 @@ const AdminDashboard = () => {
 
   const handleStatusUpdate = async (complaintId, newStatus) => {
     try {
-      await axios.put(`http://localhost:5000/api/complaint/complaints/${complaintId}/status`, { status: newStatus });
+      await axios.put(`https://complain-manege.onrender.com/api/complaint/complaints/${complaintId}/status`, { status: newStatus });
       fetchComplaints();
     } catch (err) {
       console.error('Error updating status:', err);
@@ -175,7 +175,7 @@ const AdminDashboard = () => {
 
   const handleAddOption = async () => {
     try {
-      await axios.post('http://localhost:5000/api/dynamic-options', newOption);
+      await axios.post('https://complain-manege.onrender.com/api/dynamic-options', newOption);
       setNewOption({ type: 'category', value: '', parentCategory: '', code: '' });
       setAddOptionDialog(false);
       fetchDynamicOptions();
@@ -186,7 +186,7 @@ const AdminDashboard = () => {
 
   const handleEditOption = async () => {
     try {
-      await axios.put(`http://localhost:5000/api/dynamic-options/${editingOption._id}`, editingOption);
+      await axios.put(`https://complain-manege.onrender.com/api/dynamic-options/${editingOption._id}`, editingOption);
       setEditOptionDialog(false);
       setEditingOption(null);
       fetchDynamicOptions();
@@ -198,7 +198,7 @@ const AdminDashboard = () => {
   const handleDeleteOption = async (optionId) => {
     if (window.confirm('Are you sure you want to delete this option?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/dynamic-options/${optionId}`);
+        await axios.delete(`https://complain-manege.onrender.com/api/dynamic-options/${optionId}`);
         fetchDynamicOptions();
       } catch (err) {
         console.error('Error deleting option:', err);
@@ -929,7 +929,7 @@ const AdminDashboard = () => {
                                   <IconButton size="small" title="Edit" onClick={() => { setEditingOption(dept); setEditOptionDialog(true); }} sx={{ color: '#4caf50' }}>
                                     <Edit />
                                   </IconButton>
-                                  <IconButton size="small" title="Save Code" onClick={async () => { try { await axios.put(`http://localhost:5000/api/dynamic-options/${dept._id}`, { ...dept, code: editingOption && editingOption._id === dept._id ? editingOption.code : dept.code }); fetchDynamicOptions(); } catch (err) { console.error('Error saving code:', err); } }} sx={{ color: '#2e7d32' }}>
+                                  <IconButton size="small" title="Save Code" onClick={async () => { try { await axios.put(`https://complain-manege.onrender.com/api/dynamic-options/${dept._id}`, { ...dept, code: editingOption && editingOption._id === dept._id ? editingOption.code : dept.code }); fetchDynamicOptions(); } catch (err) { console.error('Error saving code:', err); } }} sx={{ color: '#2e7d32' }}>
                                     <Save />
                                   </IconButton>
                                   <IconButton size="small" title="Delete" onClick={() => handleDeleteOption(dept._id)} sx={{ color: '#f44336' }}>

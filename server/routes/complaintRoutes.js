@@ -4,7 +4,7 @@ const complaintController = require('../controllers/complaintController');
 
 router.post('/submit_complaint', complaintController.submitComplaint);
 // Specific routes first (more specific than :id)
-router.get('/complaint/by-tracking/:trackingId', complaintController.getComplaintByTrackingId);
+router.get('/by-tracking/:trackingId', complaintController.getComplaintByTrackingId);
 router.get('/complaints-by-email', complaintController.getComplaintsByEmail);
 // Generic routes last
 router.get('/complaints/:id', complaintController.getComplaintById);
